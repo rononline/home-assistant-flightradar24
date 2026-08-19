@@ -93,7 +93,7 @@ class Flightradar24Card extends HTMLElement {
 
   setConfig(config) {
     if (!config || !config.entity) {
-      throw new Error("Please define an entity");
+      throw new Error("Geef een entiteit op");
     }
     const prev = this._config;
     const next = {
@@ -1555,27 +1555,27 @@ class Flightradar24CardEditor extends HTMLElement {
         ha-entity-picker { display: block; width: 100%; }
       </style>
       <div class="row">
-        <label>Entity</label>
+        <label>Entiteit</label>
         <div id="entity-picker"></div>
       </div>
       <div class="row">
-        <label>Title (optional)</label>
+        <label>Titel (optioneel)</label>
         <input type="text" id="title" value="${this._escape(this._config.title || "")}" />
       </div>
       <div class="row check">
         <input type="checkbox" id="show_flights" ${this._config.show_flights !== false ? "checked" : ""} />
-        <span>Show flights list</span>
+        <span>Vluchtenlijst tonen</span>
       </div>
       <div class="row check">
         <input type="checkbox" id="show_tracks" ${this._config.show_tracks !== false ? "checked" : ""} />
-        <span>Show flight tracks</span>
+        <span>Vluchtpaden tonen</span>
       </div>
       <div class="row check">
         <input type="checkbox" id="show_area_center" ${this._config.show_area_center !== false ? "checked" : ""} />
-        <span>Show area centre marker</span>
+        <span>Middelpunt van het gebied tonen</span>
       </div>
       <div class="row">
-        <label>Zoom (optional, 1–19)</label>
+        <label>Zoom (optioneel, 1–19)</label>
         <input
           type="number"
           id="zoom"
@@ -1587,7 +1587,7 @@ class Flightradar24CardEditor extends HTMLElement {
         />
       </div>
       <div class="row">
-        <label>Aircraft icon size (optional, 12–64 px)</label>
+        <label>Grootte vliegtuigicoon (optioneel, 12–64 px)</label>
         <input
           type="number"
           id="icon_size"
