@@ -405,7 +405,7 @@ class Flightradar24Card extends HTMLElement {
     }
     return (
       `<a class="${className}" href="${this._escape(url)}" target="_blank" ` +
-      `rel="noopener noreferrer" title="Open on Flightradar24" ` +
+      `rel="noopener noreferrer" title="Openen op Flightradar24" ` +
       `onclick="event.stopPropagation();">${this._escape(label)}</a>`
     );
   }
@@ -416,8 +416,8 @@ class Flightradar24Card extends HTMLElement {
     }
     return (
       `<a class="popup-fr24-link" href="${this._escape(url)}" target="_blank" ` +
-      `rel="noopener noreferrer" title="Open on Flightradar24" ` +
-      `onclick="event.stopPropagation();" aria-label="Open on Flightradar24">↗</a>`
+      `rel="noopener noreferrer" title="Openen op Flightradar24" ` +
+      `onclick="event.stopPropagation();" aria-label="Openen op Flightradar24">↗</a>`
     );
   }
 
@@ -466,8 +466,8 @@ class Flightradar24Card extends HTMLElement {
     const altitude = this._formatAltitude(flight.altitude);
 
     const stats = [
-      distance != null ? `Dist ${distance}` : "",
-      closest != null ? `Closest ${closest}` : "",
+      distance != null ? `Afst ${distance}` : "",
+      closest != null ? `Dichtstbij ${closest}` : "",
       speed || "",
       altitude || "",
     ]
@@ -554,7 +554,7 @@ class Flightradar24Card extends HTMLElement {
     flightsEl.style.display = "flex";
     flightsEl.innerHTML = flights.length
       ? flights.map((flight) => this._flightRow(flight)).join("")
-      : `<div class="empty">No flights in area</div>`;
+      : `<div class="empty">Geen vliegtuigen in de buurt</div>`;
 
     if (!scrollToSelected || !this._selectedFlightId) {
       return;
@@ -1073,7 +1073,7 @@ class Flightradar24Card extends HTMLElement {
       speed ? this._escape(speed) : "",
     ].filter(Boolean);
     const distanceStats = [
-      distance ? `Dist ${this._escape(distance)}` : "",
+      distance ? `Afst ${this._escape(distance)}` : "",
       closest ? `Min ${this._escape(closest)}` : "",
     ].filter(Boolean);
     const statsLine = (items) =>
