@@ -93,7 +93,7 @@ class Flightradar24Card extends HTMLElement {
 
   setConfig(config) {
     if (!config || !config.entity) {
-      throw new Error("Please define an entity");
+      throw new Error("Geef een entiteit op");
     }
     const prev = this._config;
     const next = {
@@ -405,7 +405,7 @@ class Flightradar24Card extends HTMLElement {
     }
     return (
       `<a class="${className}" href="${this._escape(url)}" target="_blank" ` +
-      `rel="noopener noreferrer" title="Open on Flightradar24" ` +
+      `rel="noopener noreferrer" title="Openen op Flightradar24" ` +
       `onclick="event.stopPropagation();">${this._escape(label)}</a>`
     );
   }
@@ -416,8 +416,8 @@ class Flightradar24Card extends HTMLElement {
     }
     return (
       `<a class="popup-fr24-link" href="${this._escape(url)}" target="_blank" ` +
-      `rel="noopener noreferrer" title="Open on Flightradar24" ` +
-      `onclick="event.stopPropagation();" aria-label="Open on Flightradar24">↗</a>`
+      `rel="noopener noreferrer" title="Openen op Flightradar24" ` +
+      `onclick="event.stopPropagation();" aria-label="Openen op Flightradar24">↗</a>`
     );
   }
 
@@ -466,8 +466,8 @@ class Flightradar24Card extends HTMLElement {
     const altitude = this._formatAltitude(flight.altitude);
 
     const stats = [
-      distance != null ? `Dist ${distance}` : "",
-      closest != null ? `Closest ${closest}` : "",
+      distance != null ? `Afst ${distance}` : "",
+      closest != null ? `Dichtstbij ${closest}` : "",
       speed || "",
       altitude || "",
     ]
@@ -554,7 +554,7 @@ class Flightradar24Card extends HTMLElement {
     flightsEl.style.display = "flex";
     flightsEl.innerHTML = flights.length
       ? flights.map((flight) => this._flightRow(flight)).join("")
-      : `<div class="empty">No flights in area</div>`;
+      : `<div class="empty">Geen vliegtuigen in de buurt</div>`;
 
     if (!scrollToSelected || !this._selectedFlightId) {
       return;
@@ -1073,7 +1073,7 @@ class Flightradar24Card extends HTMLElement {
       speed ? this._escape(speed) : "",
     ].filter(Boolean);
     const distanceStats = [
-      distance ? `Dist ${this._escape(distance)}` : "",
+      distance ? `Afst ${this._escape(distance)}` : "",
       closest ? `Min ${this._escape(closest)}` : "",
     ].filter(Boolean);
     const statsLine = (items) =>
@@ -1555,27 +1555,27 @@ class Flightradar24CardEditor extends HTMLElement {
         ha-entity-picker { display: block; width: 100%; }
       </style>
       <div class="row">
-        <label>Entity</label>
+        <label>Entiteit</label>
         <div id="entity-picker"></div>
       </div>
       <div class="row">
-        <label>Title (optional)</label>
+        <label>Titel (optioneel)</label>
         <input type="text" id="title" value="${this._escape(this._config.title || "")}" />
       </div>
       <div class="row check">
         <input type="checkbox" id="show_flights" ${this._config.show_flights !== false ? "checked" : ""} />
-        <span>Show flights list</span>
+        <span>Vluchtenlijst tonen</span>
       </div>
       <div class="row check">
         <input type="checkbox" id="show_tracks" ${this._config.show_tracks !== false ? "checked" : ""} />
-        <span>Show flight tracks</span>
+        <span>Vluchtpaden tonen</span>
       </div>
       <div class="row check">
         <input type="checkbox" id="show_area_center" ${this._config.show_area_center !== false ? "checked" : ""} />
-        <span>Show area centre marker</span>
+        <span>Middelpunt van het gebied tonen</span>
       </div>
       <div class="row">
-        <label>Zoom (optional, 1–19)</label>
+        <label>Zoom (optioneel, 1–19)</label>
         <input
           type="number"
           id="zoom"
@@ -1587,7 +1587,7 @@ class Flightradar24CardEditor extends HTMLElement {
         />
       </div>
       <div class="row">
-        <label>Aircraft icon size (optional, 12–64 px)</label>
+        <label>Grootte vliegtuigicoon (optioneel, 12–64 px)</label>
         <input
           type="number"
           id="icon_size"
