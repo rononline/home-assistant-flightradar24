@@ -1450,7 +1450,7 @@ class Flightradar24Card extends HTMLElement {
       if (flightsEl) flightsEl.style.display = "none";
       if (warningEl) {
         warningEl.style.display = "block";
-        warningEl.textContent = `Entity not found: ${this._config.entity}`;
+        warningEl.textContent = `Entiteit niet gevonden: ${this._config.entity}`;
       }
       if (titleEl) titleEl.textContent = "Flightradar24";
       if (countEl) countEl.textContent = "";
@@ -1462,7 +1462,7 @@ class Flightradar24Card extends HTMLElement {
       state.attributes.friendly_name ||
       this._config.entity;
     if (titleEl) titleEl.textContent = name;
-    if (countEl) countEl.textContent = `${state.state} in area`;
+    if (countEl) countEl.textContent = `${state.state} in de buurt`;
 
     const bounds = state.attributes.bounds;
     const parsed = this._parseBounds(bounds);
@@ -1475,7 +1475,7 @@ class Flightradar24Card extends HTMLElement {
       if (warningEl) {
         warningEl.style.display = "block";
         warningEl.textContent =
-          "No valid bounds attribute on this entity yet.";
+          "Deze entiteit heeft nog geen geldig bounds-attribuut.";
       }
     } else {
       if (mapWrap) mapWrap.style.display = "block";
@@ -1485,7 +1485,7 @@ class Flightradar24Card extends HTMLElement {
       } catch (error) {
         if (warningEl) {
           warningEl.style.display = "block";
-          warningEl.textContent = `Map failed to load: ${error}`;
+          warningEl.textContent = `Kaart kon niet laden: ${error}`;
         }
       }
     }
