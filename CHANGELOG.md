@@ -2,6 +2,21 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.2.2] - 2026-10-02
+
+### Fixed
+
+- `scan_interval` of `0` or negative no longer schedules back-to-back API polls; setup and options require at least 10 seconds, and existing entries below the minimum are rewritten once to the 20-second default ([#319](https://github.com/AlexandrErohin/home-assistant-flightradar24/issues/319), [#321](https://github.com/AlexandrErohin/home-assistant-flightradar24/pull/321))
+- Options form prefills a valid scan interval when a stored value is below the minimum, so Configure can be saved without first clearing a bad field
+- `airport_origin_code_iata` on tracked/most-tracked flight data now uses the IATA code instead of the full airport name ([#322](https://github.com/AlexandrErohin/home-assistant-flightradar24/pull/322))
+
+## [2.2.1] - 2026-09-22
+
+### Fixed
+
+- False `flightradar24_tracked_arrived_gate` events when a tracked flight briefly disappears from the live feed mid-air (ADS-B gaps) or during pre-departure taxi; arrival now requires landing evidence (`has_landed` / `time_real_arrival`) ([#315](https://github.com/AlexandrErohin/home-assistant-flightradar24/issues/315))
+- False `flightradar24_tracked_left_gate` events on live-feed reappearances; the event fires only on a real `schedule`/`aircraft` → `live` transition, and gate lifecycle flags reset for the next segment
+
 ## [2.2.0] - 2026-09-08
 
 ### Added
