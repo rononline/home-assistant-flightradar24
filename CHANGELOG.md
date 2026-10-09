@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.3.0] - 2026-10-06
+
+### Added
+
+- Map card option `map_style` to switch basemap without an API key: `osm` (default), `satellite` (Esri), `topo` (OpenTopoMap)
+- Map card option `interactive_map` for opt-in mouse/touch dragging and pinch zoom, with fixed Close details and Reset view controls; default static dashboards are unchanged ([#324](https://github.com/AlexandrErohin/home-assistant-flightradar24/pull/324))
+
+### Fixed
+
+- Adding or removing a tracked flight updates `Additional tracked` and clears the Add/Remove text inputs immediately, instead of waiting for the next poll ([#318](https://github.com/AlexandrErohin/home-assistant-flightradar24/issues/318), [#323](https://github.com/AlexandrErohin/home-assistant-flightradar24/pull/323))
+
 ## [2.2.2] - 2026-10-02
 
 ### Fixed
